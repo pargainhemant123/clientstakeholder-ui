@@ -1,13 +1,14 @@
 // src/context/AuthContext.js
-import React, { createContext, useContext, useState } from 'react'; // Make sure useContext is imported
+import React, { createContext, useContext, useState } from 'react';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(null);
+  const [user, setUser] = useState(null); // Store user data here
 
   return (
-    <AuthContext.Provider value={{ token, setToken }}>
+    <AuthContext.Provider value={{ token, setToken, user, setUser }}>
       {children}
     </AuthContext.Provider>
   );
@@ -15,6 +16,5 @@ export const AuthProvider = ({ children }) => {
 
 // Custom hook for easier access to Auth context
 export const useAuth = () => {
-  return useContext(AuthContext); // No error here, since useContext is now imported
+  return useContext(AuthContext);
 };
-

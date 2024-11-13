@@ -9,10 +9,16 @@ export const loginUser = async (credentials) => {
     },
     body: JSON.stringify(credentials),
   });
+
+  console.log('Response from login API:', response); // Log the response
+
   if (!response.ok) {
     throw new Error('Failed to login');
   }
-  return response.json();
+  
+  const data = await response.json();
+  console.log('Response Data:', data); // Log the actual data returned
+  return data;
 };
 
 export const registerUser = async (userData) => {

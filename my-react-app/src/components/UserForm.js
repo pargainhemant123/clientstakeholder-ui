@@ -100,6 +100,7 @@ const UserForm = () => {
           />
         </div>
         <button type="submit">Register</button>
+        <p>Already have an account? <button onClick={() => navigate('/')}>Login</button></p>
       </form>
     </div>
   );
